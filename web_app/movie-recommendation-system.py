@@ -10,7 +10,7 @@ adapter = HTTPAdapter(max_retries=retry)
 session.mount("http://", adapter)
 session.mount("https://", adapter)
 
-API_KEY = "your api"
+API_KEY = "92f7f63fe1e804b44475597e947f8bcb"
 @st.cache_data(show_spinner=False)
 def fetch_movie_details(movie_id):
     try:
@@ -50,8 +50,8 @@ def recommend(movie):
     return recommendations
 
 st.header('Movie Recommender System')
-movies = pickle.load(open('your pkl file','rb'))
-similarity = pickle.load(open('your pkl file','rb'))
+movies = pickle.load(open('../model/movie_list.pkl','rb'))
+similarity = pickle.load(open('../model/similarity.pkl','rb'))
 
 movie_list = movies['title'].values
 selected_movie = st.selectbox("Type or select a movie from the dropdown", movie_list)
